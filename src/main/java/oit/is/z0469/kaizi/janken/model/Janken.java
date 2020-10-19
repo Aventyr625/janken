@@ -1,15 +1,13 @@
 package oit.is.z0469.kaizi.janken.model;
 
-import java.util.ArrayList;
-
 public class Janken{
-  ArrayList<String> nameList = new ArrayList<>();
+  private String namae;
 
-  public ArrayList<String> getNameList(){
-    return nameList;
+  public String getJanken(){
+    return this.namae;
   }
 
-  public void setNameList(ArrayList<String> nameList){
-    this.nameList = nameList;
+  public void setJanken(String namae){
+    this.namae = namae;
   }
 }
