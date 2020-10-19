@@ -11,6 +11,32 @@
   <div th:if="${namae}">
     Hi![[${namae}]]
   </div>
+  <div>
+    <a href="/lec022">ぐー</a>
+    <a href="/lec023">ちょき</a>
+    <a href="/lec024">ぱー</a>
+  </div>
+  <div th:if="${gu}">
+    あなたの手：[[${gu}]]
+    <br/>
+    あいての手：ぐー
+    <br/>
+    結果：引き分け
+  </div>
+  <div th:if="${choki}">
+    あなたの手：[[${choki}]]
+    <br/>
+    あいての手：ぐー
+    <br/>
+    結果：あなたの負け
+  </div>
+  <div th:if="${pa}">
+    あなたの手：[[${pa}]]
+    <br/>
+    あいての手：ぐー
+    <br/>
+    結果：あなたの勝ち
+  </div>
 </body>
 
 </html>
