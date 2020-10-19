@@ -11,6 +11,7 @@ import oit.is.z0469.kaizi.janken.model.Entry;
 
 @Controller
 public class Lec02Controller{
+
   @GetMapping("/lec02")
   public String lec02(ModelMap model, Principal prin){
     String loginUser = prin.getName();
@@ -18,6 +19,7 @@ public class Lec02Controller{
     Entry newRoom = new Entry();
     newRoom.addUser(loginUser);
     model.addAttribute("new_room", newRoom);
+
     return "lec02.html";
   }
 
