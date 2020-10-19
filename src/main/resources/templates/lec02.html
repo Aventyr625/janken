@@ -3,12 +3,14 @@
 
 <head>
   <meta charset="utf-8">
-  <title>SpringBoot Sample2-1</title>
+  <title>lec02-1</title>
 </head>
 
 <body>
   <h1>Lec02 GET!</h1>
-  <p>Hi! [[${youname}]]</p>
+  <div th:if="${namae}">
+    Hi![[${namae}]]
+  </div>
 </body>
 
 </html>

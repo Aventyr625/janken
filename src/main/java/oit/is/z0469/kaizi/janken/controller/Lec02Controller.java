@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class Lec02Controller{
-  @GetMapping("/lec02")
-  public String lec02(@RequestParam String name, ModelMap model){
-    model.addAttribute("youname", name);
+  @PostMapping("/lec021")
+  public String sample021(@RequestParam String namae, ModelMap model) {
+    model.addAttribute("namae", namae);
     return "lec02.html";
   }
-
 }
