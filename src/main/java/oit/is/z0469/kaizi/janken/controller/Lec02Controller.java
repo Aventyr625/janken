@@ -1,23 +1,29 @@
 package oit.is.z0469.kaizi.janken.controller;
+import java.security.Principal;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import java.security.Principal;
+
 import oit.is.z0469.kaizi.janken.model.Entry;
 
 @Controller
 public class Lec02Controller{
+
+  @Autowired
+  private Entry room;
+
   @GetMapping("/lec02")
-  public String lec02(ModelMap model, Principal prin){
+  public String lec02(Principal prin, ModelMap model){
     String loginUser = prin.getName();
     model.addAttribute("login_user", loginUser);
-    Entry newRoom = new Entry();
-    newRoom.addUser(loginUser);
-    model.addAttribute("new_room", newRoom);
+    this.room.addUser(loginUser);
+    model.addAttribute("new_room", this.room);
     return "lec02.html";
   }
 
