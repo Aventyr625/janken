@@ -5,45 +5,55 @@
   <meta charset="utf-8">
   <title>lec02-1</title>
 </head>
+<p>Hi [[${login_user}]]</p>
 
 <body>
   <h1>Lec02 GET!</h1>
   <a href="/logout">ログアウト</a>
-  <!--<div th:if="${namae}">
-    Hi [[${namae}]]
-  </div>-->
-  <p>Hi [[${login_user}]]</p>
-  <div th:if="${new_room}">
+
+  <p th:if="${user2}">
     エントリー
-    <ul>
-      <li>RoomNo:[[${new_room.roomNo}]]</li>
-      <li th:each="user : ${new_room.users}">[[${user}]]</li>
-    </ul>
+    <li th:each="user : ${user2}">
+      <a th:href="@{/match(id=${user.id})}">
+        [[${user.name}]]
+      </a>
+    </li>
+  </p>
+  <p th:if="${match5}">
+  <div th:each="match,stat:${match5}">
+    <tr>
+      <td>ID:[[${match.id}]]</td>
+      <td>user_1:[[${match.user_1}]]</td>
+      <td>user_2:[[${match.user_2}]]</td>
+      <td>user_1_hand:[[${match.user_1_hand}]]</td>
+      <td>user_2_hand:[[${match.user_2_hand}]]</td>
+    </tr>
   </div>
+  </p>
   <div>
-    <a href="/lec022">ぐー</a>
-    <a href="/lec023">ちょき</a>
-    <a href="/lec024">ぱー</a>
+    <a href="/lec02/step2">ぐー</a>
+    <a href="/lec02/step3">ちょき</a>
+    <a href="/lec02/step4">ぱー</a>
   </div>
   <div th:if="${gu}">
     あなたの手：[[${gu}]]
-    <br/>
+    <br />
     あいての手：ぐー
-    <br/>
+    <br />
     結果：引き分け
   </div>
   <div th:if="${choki}">
     あなたの手：[[${choki}]]
-    <br/>
+    <br />
     あいての手：ぐー
-    <br/>
+    <br />
     結果：あなたの負け
   </div>
   <div th:if="${pa}">
     あなたの手：[[${pa}]]
-    <br/>
+    <br />
     あいての手：ぐー
-    <br/>
+    <br />
     結果：あなたの勝ち
   </div>
 </body>
