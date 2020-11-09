@@ -18,6 +18,8 @@ public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
 
     auth.inMemoryAuthentication().withUser("user1")
         .password("$2y$10$rJ9yqGht2W96MdIJICRQQOuUiYrt2eDokKnDuZZof2DPs83PN6QdC").roles("USER");
+    auth.inMemoryAuthentication().withUser("ほんだ")
+        .password("$2y$10$rJ9yqGht2W96MdIJICRQQOuUiYrt2eDokKnDuZZof2DPs83PN6QdC").roles("USER");
     auth.inMemoryAuthentication().withUser("admin")
         .password("$2y$10$rJ9yqGht2W96MdIJICRQQOuUiYrt2eDokKnDuZZof2DPs83PN6QdC").roles("ADMIN");
 
@@ -36,6 +38,9 @@ public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
     http.formLogin();
 
     http.authorizeRequests().antMatchers("/lec02/**").authenticated();
+
+    http.csrf().disable();
+    http.headers().frameOptions().disable();
 
     http.logout().logoutSuccessUrl("/");
   }
